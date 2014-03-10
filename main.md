@@ -11,32 +11,37 @@ looks great to me, something i always find useful to explain as introduction in 
 also explaining the physical setup of such installations, IR lighting, filters... how to make the computer see some things and humans others and in general how all the work you can do in the physical setup will make your live easier when coding: the first time zach explained to me how in mesa di voce the screen is flooded with IR so the computer has to do almost nothing in order to detect the performers, it totally changed my way of thinking about this kind of problems
 
 ========================================================
-2. Preliminaries
+## 2. Preliminaries
 
-2.1. Image data structures 
-   -- 8u, 32f, etc.
-   -- 1C, 3C, 4C images, etc.
-   -- Back and forth between ofxCV, ofxOpenCV, unsigned char*, ofPixels.
-   -- Example: color space conversions; converting RGB to Gray.
 
-2.2. Image Arithmetic: mathematical operations on images
-   -- adding two images together
-   -- subtracting two images
-   -- multiplying an image by a constant
-   -- mentioning ROI 
-   -- Example: creating an average of several images (e.g. Jason Salavon)
-   -- Example: creating a circular alpha-mask from a computed Blinn spot
+### 2.1. Image data structures 
+- 8u, 32f, etc.
+- 1C, 3C, 4C images, etc.
+- Back and forth between ofxCV, ofxOpenCV, unsigned char*, ofPixels.
+- Example: color space conversions; converting RGB to Gray.
+
+### 2.2. Image Arithmetic: mathematical operations on images
+
+A core part of the workflow of computer vision is *image arithmetic*. For the sake of simplicity, we'll assume that the images upon which we'll perform these operations are all the same size -- for example, 640x480 pixels, a typical capture size for many webcams. 
+
+- adding two images together
+- subtracting two images
+- multiplying an image by a constant
+- mentioning ROI 
+- Example: creating an average of several images (e.g. Jason Salavon)
+- Example: creating a circular alpha-mask from a computed Blinn spot
    
-2.3. Convolution Filtering
-   -- Blurring an image
-   -- Edge detection 
-   -- Advanced sidebar: dealing with boundary conditions
+### 2.3. Convolution Filtering
+- Blurring an image
+- Edge detection 
+- Advanced sidebar: dealing with boundary conditions
 
-2.4. Suggestions for Further Experimentation:
-   -- Slit-Scanner
-   -- Toy version of Text Rain. Fun with edge detection.
-   -- Toy version of LASER Tag. Finding the brightest point, tracing a path.
-   -- Toy version of Memo Akten's Gold: Optical flow + particle system
+### 2.4. Suggestions for Further Experimentation
+
+- Slit-Scanner
+- Toy version of *Text Rain* by Camille Utterback and Romy Achituv. Fun with edge detection.
+- Toy version of *L.A.S.E.R. Tag* by the GRL: Finding the brightest point, tracing a path.
+- Toy version of Memo Akten's *Gold*: Optical flow + particle system
 
 ========================================================
 3. Scenario I. Basic Blobs (e.g. Manual Input Sessions) 
