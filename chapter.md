@@ -2,7 +2,7 @@
   
 ##STILL WORKING ON IT!!!
 
- 1. Introduction 
+1. Introduction 
   
  [This outline is based on workshops Golan taught with Kyle.]
  Some previous reference materials here:
@@ -10,38 +10,38 @@
 - http://piratepad.net/resonate-cv 
 - http://www.flong.com/texts/essays/essay_cvad/
   
- Unedited copy-paste from Arturo email (not yet integrated):
- looks great to me, something i always find useful to explain as introduction in CV workshops before going into software details is the differences between contour finding (manual input sessions / delicate baoundaries) / motion detection (memo's gold / damian's wind) / blob tracking (chris o'shea's audience) and how contour finding *usually* gives more "precise" information than motion detection while it requires a much more controlled environment (ie: lighting) and how blob tracking techniques are usually some combination of contour finding + motion detection. all of it seems to be in the different subsections of your outline, i find it useful to explain it as an introduction with examples so people get a general idea but perhaps for the book is better to explain it along with the different techniques
+Unedited copy-paste from Arturo email (not yet integrated):
+looks great to me, something i always find useful to explain as introduction in CV workshops before going into software details is the differences between contour finding (manual input sessions / delicate baoundaries) / motion detection (memo's gold / damian's wind) / blob tracking (chris o'shea's audience) and how contour finding *usually* gives more "precise" information than motion detection while it requires a much more controlled environment (ie: lighting) and how blob tracking techniques are usually some combination of contour finding + motion detection. all of it seems to be in the different subsections of your outline, i find it useful to explain it as an introduction with examples so people get a general idea but perhaps for the book is better to explain it along with the different techniques
 also explaining the physical setup of such installations, IR lighting, filters... how to make the computer see some things and humans others and in general how all the work you can do in the physical setup will make your live easier when coding: the first time zach explained to me how in mesa di voce the screen is flooded with IR so the computer has to do almost nothing in order to detect the performers, it totally changed my way of thinking about this kind of problems
 
   
- ========================================================
- ## 1. Preliminaries to Image Processing
+========================================================
+## 1. Preliminaries to Image Processing
   
- ### 1.1. Digital image acquisition and data structures 
+### 1.1. Digital image acquisition and data structures 
 
   
 This chapter introduces techniques for manipulating (and extracting certain kinds of information from) *raster images*. Such images are also known as *bitmap images* or *pixmap images*, although, for the purposes of this chapter, we'll just use the generic term **image** to refer to any array (or *buffer*) of numbers that represent the color values of a rectangular grid of *pixels* ("picture elements"). In openFrameworks, such buffers come in a variety of flavors, and are used within and managed by a wide variety of convenient container objects, as we shall see.
   
- #### 1.1.1. Loading and Displaying an Image 
+#### 1.1.1. Loading and Displaying an Image 
   
- Image processing begins with, well, *an image*. Happily, loading and displaying an image is very straightforward in OF. Let's start with this tiny, low-resolution (12x16 pixel) grayscale portrait of Abraham Lincoln: ![Small Lincoln image](https://dl.dropboxusercontent.com/u/10137599/ofbook/lincoln.png)
+Image processing begins with, well, *an image*. Happily, loading and displaying an image is very straightforward in OF. Let's start with this tiny, low-resolution (12x16 pixel) grayscale portrait of Abraham Lincoln: ![Small Lincoln image](https://dl.dropboxusercontent.com/u/10137599/ofbook/lincoln.png)
 
- Below is a simple application for loading and displaying an image, similar to the *imageLoaderExample* in the OF examples collection. The header file for our program, *testApp.h*, declares an instance of an `ofImage` object, *myImage*:
+Below is a simple application for loading and displaying an image, similar to the *imageLoaderExample* in the OF examples collection. The header file for our program, *testApp.h*, declares an instance of an `ofImage` object, *myImage*:
   
- ```cpp
- // This is testApp.h
- #pragma once
- #include "ofMain.h"
- 
- class testApp : public ofBaseApp{
- 	public:
- 		void setup();
- 		void draw();
- 		ofImage myImage;
- };
- ```
- And here's our complete *testApp.cpp* file. The Lincoln image is loaded from our hard drive (once) in the `setup()` function, and then we display it (many times per second) in our `draw()` function. As you can see from the filepath provided to the `loadImage()` function, the program assumes that the image *lincoln.png* can be found in a directory called "images" alongside your executable: 
+```cpp
+// This is testApp.h
+#pragma once
+#include "ofMain.h"
+
+class testApp : public ofBaseApp{
+	public:
+		void setup();
+		void draw();
+		ofImage myImage;
+};
+```
+And here's our complete *testApp.cpp* file. The Lincoln image is loaded from our hard drive (once) in the `setup()` function, and then we display it (many times per second) in our `draw()` function. As you can see from the filepath provided to the `loadImage()` function, the program assumes that the image *lincoln.png* can be found in a directory called "images" alongside your executable: 
  
  ```cpp
  #include "testApp.h"
